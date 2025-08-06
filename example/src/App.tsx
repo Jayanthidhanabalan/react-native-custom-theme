@@ -1,18 +1,32 @@
-import { Text, View, StyleSheet } from 'react-native';
-//import { multiply } from 'react-native-custom-theme';
+import * as React from 'react';
+import { Button, SafeAreaView, Text } from 'react-native';
+import { ThemeContext, ThemeProvider } from 'react-native-custom-theme';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Result:</Text>
-    </View>
+    <ThemeProvider>
+      <Launcher />
+    </ThemeProvider>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// Move this outside App so it can consume context properly
+const Launcher = () => {
+  const { theme, setTheme } = React.useContext(ThemeContext);
+
+  console.log('RNTHEme', theme.primary);
+
+  const OnButtonClick = () => {
+    console.log('SECONDARY');
+    setTheme('SECONDARY');
+  };
+
+  return (
+    <SafeAreaView>
+      <Text style={{ backgroundColor: theme.primary }}>{theme.primary}</Text>
+      <Button onPress={OnButtonClick} title="Toggle Theme" />
+    </SafeAreaView>
+  );
+};
+
+export default App;

@@ -10,7 +10,7 @@ import { ThemeContext } from './ThemeContext';
 const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [themeMode, setThemeMode] = useState<ThemeProperties>(DefaultTheme);
+  const [themeMode, setThemeMode] = useState<ThemeProperties>(PrimaryTheme);
 
   const setTheme = (changedTheme: string) => {
     switch (changedTheme) {

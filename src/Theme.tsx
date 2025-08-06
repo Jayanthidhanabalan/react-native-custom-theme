@@ -14,6 +14,6 @@ export const SecondaryTheme: ThemeProperties = {
 };
 
 export const DefaultTheme: ThemeProperties = {
-  primary: '#a0c800',
-  buttonBg: '#a0c800',
+  primary: '#c800a3ff',
+  buttonBg: '#c800a3ff',
 };
